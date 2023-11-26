@@ -331,7 +331,7 @@ nav>a {
     margin-top: 16px;
     background-color: #fff;
     border-radius: 18px;
-    border:  1px solid #dbdbdb;
+    border: 1px solid #dbdbdb;
     box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.05);
 }
 
@@ -363,7 +363,7 @@ nav>a {
     gap: 8px;
 }
 
-.setupContainer .setupProgress .progressBar {
+.setupContainer .setupProgress .progressBarContainer {
     width: 72px;
     height: 4px;
     background-color: #E3E3E3;
@@ -371,11 +371,10 @@ nav>a {
     position: relative;
 }
 
-.progressBar::after {
-    content: '';
+.progressBar {
     background-color: #000;
     width: 0%;
-    height: 4px;
+    height: 100%;
     border-radius: 2.8px;
     position: absolute;
     transition: width .5s ease;
@@ -394,7 +393,8 @@ nav>a {
     right: 20px;
 }
 
-.arrowDown, .arrowUp {
+.arrowDown,
+.arrowUp {
     width: 20px;
     height: 20px;
     padding: 4px;
@@ -405,26 +405,35 @@ nav>a {
     display: none;
 }
 
-.setupContainer.active .setupContent {
-    display: block;
-}
-
-.setupContainer.active .toggleArrows .arrowUp {
-    display: block;
-}
-
-.setupContainer.active .toggleArrows .arrowdown {
-    display: none;
-}
-
-
 .content {
     padding: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 10px;
-    background: #F3F3F3;
+    background: transparent;
+    overflow: hidden;
+    transition: .3s ease;
+}
+
+.content.active {
+    background-color: #F3F3F3;
+    
+}
+
+.setupText {
+    display: none;
+}
+
+.setupImg {
+    display: none;
+}
+
+.content.active .setupImg {
+    display: block;
+}
+.content.active .setupText {
+    display: block;
 }
 
 .setupHead {
@@ -444,6 +453,15 @@ nav>a {
     height: 24px;
     border-radius: 50%;
     border: 2px dashed #8A8A8A;
+}
+
+.checkCircle:hover {
+    border: 2px solid #8A8A8A;
+}
+
+.checkCircle:active {
+    border-color: #1C181D;
+    animation: rotate .4s linear;
 }
 
 .setupText {
@@ -535,7 +553,8 @@ nav>a {
         margin-left: 0rem;
     }
 
-    .subscriptionPlan, #mainContainer {
+    .subscriptionPlan,
+    #mainContainer {
         width: 700px;
     }
 }
@@ -561,7 +580,8 @@ nav>a {
         width: 100%;
     }
 
-    .subscriptionPlan, #mainContainer {
+    .subscriptionPlan,
+    #mainContainer {
         width: 92.1925%;
         height: 100px;
         position: relative;
@@ -590,6 +610,7 @@ nav>a {
         top: 12px;
         right: 16px;
     }
+
     .content img {
         display: none;
     }
@@ -604,7 +625,9 @@ nav>a {
 }
 
 @media(max-width: 360px) {
-    .subscriptionPlan, #mainContainer {
+
+    .subscriptionPlan,
+    #mainContainer {
         width: 90.9787%;
     }
 }
