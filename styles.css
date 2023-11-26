@@ -371,6 +371,10 @@ nav>a {
     position: relative;
 }
 
+.setupContent {
+    display: block;
+}
+
 .progressBar {
     background-color: #000;
     width: 0%;
@@ -388,7 +392,7 @@ nav>a {
     outline: 0;
 }
 
-.toggleArrows svg {
+.toggleArrows img {
     position: absolute;
     right: 20px;
 }
@@ -418,7 +422,7 @@ nav>a {
 
 .content.active {
     background-color: #F3F3F3;
-    
+
 }
 
 .setupText {
@@ -432,6 +436,7 @@ nav>a {
 .content.active .setupImg {
     display: block;
 }
+
 .content.active .setupText {
     display: block;
 }
@@ -612,6 +617,10 @@ nav>a {
     }
 
     .content img {
+        display: none;
+    }
+
+    .content.active .setupImg {
         display: none;
     }
 }
